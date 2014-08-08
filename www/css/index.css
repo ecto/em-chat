@@ -1,0 +1,108 @@
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  background: #000;
+}
+
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  opacity: 0.8;
+  transform: translate3d(0.1, 0.1, 0.1);
+  
+  background: -webkit-repeating-linear-gradient(
+    top,
+    transparent 0px,
+    transparent 1px,
+    rgba(255,255,255,0.1) 1px,
+    rgba(255,255,255,0.1) 2px
+  );
+  -webkit-background-size: 100% 2px;
+
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: roll;
+  -webkit-animation-iteration-count: infinite;  
+
+  z-index: 1000;
+}
+
+#app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 15px;
+  color: green;
+  font-family: 'Courier', monospace;
+  font-weight: bold;
+  
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-name: flicker;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#splash {
+  text-align: center;
+}
+
+#splash .title {
+  font-size: 2em;
+  margin: 40px 0 10px;
+}
+
+#splash .version {
+  font-size: 0.8em;
+  margin-bottom: 50px;
+}
+
+#splash .logo {
+  width: 200px;
+  height: 180px;
+}
+
+.button {
+  padding: 15px 20px;
+  border: 2px solid green;
+  border-radius: 3px;
+  margin: 15px auto;
+  width: 100px;
+
+}
+
+@-webkit-keyframes flicker {
+  0% {
+    text-shadow: 0px 0px 6px green;
+    opacity: 1;
+  }
+
+  50% {
+    text-shadow: 0px 1px 8px green;
+  }
+
+  100% {
+    text-shadow: 0px 0px 6px green;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes roll {
+  from {
+    background-position: 0px 0px;
+  }
+
+  to {
+    background-position: 0px 1px;
+  }
+}
